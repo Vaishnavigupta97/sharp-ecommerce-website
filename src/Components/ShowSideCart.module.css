@@ -1,0 +1,29 @@
+.sideparent{
+    width: 35%;
+    height: 100vh;
+    /* position: sticky; */
+    /* margin: 0 auto; */
+}
+.heading{
+    text-align: center;
+    margin: 5% 0;
+}
+.removeCart{
+    display: flex;
+    justify-content: end;
+}
+.removeCart button{
+    width: 10%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 1%;
+    padding: 1% 0;
+    background-color: none;
+}
+.cartDescription{
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    /* border-bottom: 1px solid grey; */
+    font-size: 20px;
+}

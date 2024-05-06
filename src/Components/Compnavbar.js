@@ -1,6 +1,10 @@
 import { Container, Navbar, Row, Col, ButtonGroup, Button } from "react-bootstrap";
+// import SideCart from "./ShowSideCart.js";
 
 const Compnavbar = () => {
+    // const runSideCart = () => {
+    //     <SideCart />
+    // }
     return (
         <>
             <Navbar bg="dark" variant="dark" style={{ color: "white" }}>
@@ -10,12 +14,10 @@ const Compnavbar = () => {
                         <Col className="gx-5">STORE</Col>
                         <Col className="gx-5">ABOUT</Col>
                     </Row>
-                    {/* <div className="align-items-start"> */}
                     <ButtonGroup aria-label="Basic example">
                         <Button variant="outline-info">cart</Button>
                     </ButtonGroup>
                     <span>0</span>
-                    {/* </div> */}
                 </Container>
             </Navbar>
         </>
