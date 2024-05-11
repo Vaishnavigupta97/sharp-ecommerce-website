@@ -1,12 +1,16 @@
 .sideparent{
     width: 35%;
-    height: 100vh;
-    /* position: sticky; */
-    /* margin: 0 auto; */
+    height: 80vh;
+    position: fixed;
+    right: 0;
+    overflow-y: scroll;
+    margin: 1% 0;
+    background-color: white;
+    border: 1px solid brown;
 }
 .heading{
     text-align: center;
-    margin: 5% 0;
+    /* margin: 5% 0; */
 }
 .removeCart{
     display: flex;
@@ -21,9 +25,51 @@
     background-color: none;
 }
 .cartDescription{
+    font-size: 20px;
+}
+td:nth-of-type(1){
+    font-size: 18px;
+    width: 40%;
+}
+.tdCover{
     display: flex;
     justify-content: center;
+    /* align-items: center; */
     gap: 5%;
-    /* border-bottom: 1px solid grey; */
+}
+.tdCover p{
+    border: 1px solid #56CCF2;
+    border-radius: 5px;
+    padding: 2% 8%;
+}
+.tableRow td img{
+    width: 30%;
+    border-radius: 5px;
+}
+td button{
+    background-color: #E74C4C;
+    border: navajowhite;
+    padding: 2% 8%;
+    border-radius: 5px;
+    color: white;
+    font-size: 17px;
+}
+.total{
+    display: flex;
+    justify-content: end;
+    gap: 5%;
+    padding: 3% 5%;
+}
+.purchase{
+    text-align: center;
+}
+.purchase button{
+    width: 30%;
+    border: none;
+    border-radius: 5px;
+    background-color: #56CCF2;
+    color: white;
     font-size: 20px;
+    font-weight: 600;
+    padding: 2% 0;
 }

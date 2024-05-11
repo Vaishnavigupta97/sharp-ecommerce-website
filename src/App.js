@@ -1,24 +1,31 @@
-// import { useContext } from "react";
+import { useContext, useState } from "react";
 import CompHeader from "./Components/CompHeader";
 import CompProducts from "./Components/CompProducts";
 import Compnavbar from "./Components/Compnavbar";
 import ShowSideCart from "./Components/ShowSideCart";
-// import { allcontexts } from "./Store/ContextProvider";
+import Context from "./Store/Context";
+import "./App.css"; 
 
 function App() {
-  // const [sideCartVisible] = useContext(allcontexts);
+  const {sideCartVisible} = useContext(Context);
+  const [productList, setProductList] = useState([]);
+
+  const storeProducts = (addData) => {
+    setProductList((prev) => {
+      return [...prev, addData];
+    })
+    console.log(productList);
+  }
   return (
     <>
-      <Compnavbar />
+      <Compnavbar className="navBar"/>
       <div className="d-flex">
-        <div>
+        <div className="components">
           <CompHeader />
-          <CompProducts />
+          <CompProducts storeProduct= {storeProducts}/>
         </div>
-        <ShowSideCart />
-        {/* {sideCartVisible && <ShowSideCart />} */}
+        {sideCartVisible && <ShowSideCart list= {productList}/>}
       </div>
-
     </>
   );
 }
