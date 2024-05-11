@@ -1,6 +1,7 @@
 .sideparent{
     width: 35%;
-    height: 80vh;
+    /* height: 80vh; */
+    min-height: 100vh;
     position: fixed;
     right: 0;
     overflow-y: scroll;
