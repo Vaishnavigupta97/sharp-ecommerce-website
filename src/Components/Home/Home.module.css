@@ -1,0 +1,50 @@
+.latestAlbum{
+    color: white;
+    /* font-size: 50px; */
+}
+.tableContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 10%;
+    border-bottom: 1px solid gray;
+    width: 60%;
+    margin: auto;
+    padding: 1% 0;
+}
+
+.tableContainer div {
+    color: gray;
+}
+
+.dateContain {
+    font-weight: 600;
+    /* color: black; */
+}
+
+.buyButton {
+    text-align: center;
+    width: 20%;
+}
+
+.buyButton button {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: #56CCF2;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 2%;
+}
+
+.homeBottom {
+    background-color: #56CCF2;
+    padding: 2% 0;
+    margin-top: 2%;
+    color: white;
+    text-align: left;
+}
+.homeBottom h1{
+    text-align: left;
+    padding: 0 5%;
+}

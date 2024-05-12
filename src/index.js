@@ -11,10 +11,12 @@ import ContextProvider from './Store/ContextProvider';
 import "../node_modules/react-bootstrap/dist/react-bootstrap";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import About from './Components/About/About';
+import Home from './Components/Home/Home';
 
 const router = createBrowserRouter([
   {path: '/', element: <App />},
-  {path: '/about', element: <About /> }
+  {path: '/about', element: <About /> },
+  {path: '/home', element: <Home />}
 ]);
 
 
