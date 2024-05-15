@@ -1,33 +1,48 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import Context from "../Store/Context";
 
-const productsArr = [
-    {
-        title: 'Colors',
-        price: 100,
-        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
-    },
-    {
-        title: 'Black and white Colors',
-        price: 50,
-        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
-    },
-    {
-        title: 'Yellow and Black Colors',
-        price: 70,
-        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
-    },
-    {
-        title: 'Blue Color',
-        price: 100,
-        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
-    }
-]
+// const productsArr = [
+//     {
+//         title: 'Colors',
+//         price: 100,
+//         imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+//     },
+//     {
+//         title: 'Black and white Colors',
+//         price: 50,
+//         imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
+//     },
+//     {
+//         title: 'Yellow and Black Colors',
+//         price: 70,
+//         imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+//     },
+//     {
+//         title: 'Blue Color',
+//         price: 100,
+//         imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
+//     }
+// ]
+
 
 
 const CompProducts = (props) => {
     const {sideCartVisibleClick, setAllPurchaseCart, allPurchaseCart} = useContext(Context);
+    const [movies, setMovies] = useState([]);
+    function showProductsArr(){
+        fetch('https://swapi.dev/api/films').then(response => {
+            return response.json();
+        }).then((data) => {
+            const transformedMovies = data.results.map(moviedata => {
+                return {
+                    id: moviedata.episode_id,
+                    title: moviedata.title
+                }
+            });
+            setMovies(transformedMovies);
+        })
+    }
     const addAtSideCard = (product) => {
         const productObj = {
             title : product.title,
@@ -41,7 +56,8 @@ const CompProducts = (props) => {
     return (
         <>
             <div className="d-flex flex-wrap justify-content-center" style={{ gap: "15%" }}>
-                {productsArr.map((product, index) => (
+                <button onClick={showProductsArr}>fetch movies</button>
+                {movies.map((product, index) => (
                         <Card className="w-40 my-5" key={index}>
                             <Card.Body className="border-none">
                                 <Card.Title className="text-center">{product.title}</Card.Title>

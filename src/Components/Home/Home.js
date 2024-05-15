@@ -1,3 +1,4 @@
+import { useState } from "react";
 import CompHeader from "../CompHeader";
 import Compnavbar from "../Compnavbar";
 import classes from "./Home.module.css";
@@ -5,8 +6,28 @@ import { Container, Row, Col } from "react-bootstrap";
 
 
 function Home() {
+    // const [movies, setMoves] = useState([]);
+    // function fetchMoviesHandler(){
+    //     fetch("https://swapi.dev/api/films")
+    //     .then((response) => {
+    //         return response.json();
+    //     })
+    //     .then((data) => {
+    //         const transForemMovies = data.results.map(movieData => {
+    //             return {
+    //                 id : movieData.episode_id,
+    //                 title: movieData.title,
+    //                 openingText : movieData.opening_crawl,
+    //                 relaseDate : movieData.release_date
+    //             }
+    //         })
+    //         setMoves(data.results);
+    //     })
+    // }
     return (
         <>
+        {/* <btuuon onClick={fetchMoviesHandler}>{movies} click me</btuuon> */}
+        {/* console.log(movies) */}
             <Compnavbar />
             <div className={classes.latestAlbum}>
             <CompHeader />
