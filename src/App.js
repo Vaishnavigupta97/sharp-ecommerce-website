@@ -9,6 +9,7 @@ import ShowSideCart from "./Components/ShowSideCart";
 import Context from "./Store/Context";
 import "./App.css"; 
 import About from './Components/About/About';
+import StoreForm from "./Components/Stored/StoreForm";
 
 
 // const router = createBrowserRouter([
@@ -34,6 +35,7 @@ function App() {
       <div className="d-flex">
         <div className="components">
           <CompHeader />
+          <StoreForm />
           <CompProducts storeProduct= {storeProducts}/>
         </div>
         {sideCartVisible && <ShowSideCart list= {productList}/>}

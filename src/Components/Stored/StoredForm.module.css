@@ -1,0 +1,29 @@
+/* form{
+    width: 100%;
+
+} */
+.formParent{
+    width: 50%;
+    margin: auto;
+}
+.labelParent{
+    /* display: flex; */
+    margin: 2%;
+}
+.labelParent input{
+    width: 80%;
+    border: 1px solid grey;
+    border-radius: 8px;
+}
+.submitBtn{
+    width: 32%;
+    margin: auto;
+}
+.submitBtn button{
+    width: 65%;
+    background-color: #1B0047;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 5% 0;
+}
