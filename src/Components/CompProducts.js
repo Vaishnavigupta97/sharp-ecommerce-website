@@ -1,6 +1,7 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import Context from "../Store/Context";
+import { useCallback } from "react";
 
 // const productsArr = [
 //     {
@@ -32,7 +33,8 @@ const CompProducts = (props) => {
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] =  useState(null);
-    async function showProductsArr(){
+
+    const showProductsArr = useCallback(async () =>{
         setIsLoading(true);
         setError(null);
         try{
@@ -53,7 +55,13 @@ const CompProducts = (props) => {
             setError(error.message)
         }
         setIsLoading(false);
-    }
+    }, [])
+
+    useEffect(() => {
+        showProductsArr();
+    }, [showProductsArr]);
+
+
     const addAtSideCard = (product) => {
         const productObj = {
             title : product.title,
@@ -64,6 +72,7 @@ const CompProducts = (props) => {
         props.storeProduct(productObj);
         console.log(productObj);
     }
+
     return (
         <>
             <div className="d-flex flex-wrap justify-content-center" style={{ gap: "15%" }}>
