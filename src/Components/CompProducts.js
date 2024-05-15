@@ -30,10 +30,10 @@ import Context from "../Store/Context";
 const CompProducts = (props) => {
     const {sideCartVisibleClick, setAllPurchaseCart, allPurchaseCart} = useContext(Context);
     const [movies, setMovies] = useState([]);
-    function showProductsArr(){
-        fetch('https://swapi.dev/api/films').then(response => {
-            return response.json();
-        }).then((data) => {
+    async function showProductsArr(){
+        const response = await fetch('https://swapi.dev/api/films');
+        const data = await response.json();
+        // then((data) => {
             const transformedMovies = data.results.map(moviedata => {
                 return {
                     id: moviedata.episode_id,
@@ -41,7 +41,7 @@ const CompProducts = (props) => {
                 }
             });
             setMovies(transformedMovies);
-        })
+        // })
     }
     const addAtSideCard = (product) => {
         const productObj = {
