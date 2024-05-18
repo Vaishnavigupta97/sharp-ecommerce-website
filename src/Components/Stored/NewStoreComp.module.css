@@ -1,0 +1,12 @@
+.fetchMovieParentBtn{
+    width: 10%;
+    margin: 1% auto;
+}
+.fetchMovieBtn{
+    width: 100%;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8% 0;
+}

@@ -16,14 +16,14 @@
     border-radius: 8px;
 }
 .submitBtn{
-    width: 32%;
+    width: 20%;
     margin: auto;
 }
 .submitBtn button{
-    width: 65%;
+    width: 100%;
     background-color: #1B0047;
     color: white;
     border: none;
     border-radius: 8px;
-    padding: 5% 0;
+    padding: 8% 0;
 }

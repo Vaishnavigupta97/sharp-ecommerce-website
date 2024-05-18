@@ -6,6 +6,7 @@ import { useCallback } from "react";
 import Compnavbar from "../Compnavbar";
 import CompHeader from "../CompHeader";
 import StoreForm from "./StoreForm";
+import classes from "./NewStoreComp.module.css";
 
 
 
@@ -15,13 +16,13 @@ const NewStoreComp = (props) => {
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [addFormObj, setAddFormObj] = useState([]);
+    // const [addFormObj, setAddFormObj] = useState([]);
 
-    const addFormData = (data) => {
-        setAddFormObj((prevdata) => {
-          return [...prevdata, data];
-        })
-      }
+    // const addFormData = (data) => {
+    //     setAddFormObj((prevdata) => {
+    //       return [...prevdata, data];
+    //     })
+    //   }
 
 
     const showProductsArr = useCallback(async () => {
@@ -29,18 +30,32 @@ const NewStoreComp = (props) => {
         setError(null);
         try {
             const response = await fetch('https://react-http-42444-default-rtdb.firebaseio.com/movies.json');
+            console.log(response.ok);
+
             if (!response.ok) {
                 throw new Error('Something went wrong ....Retrying');
             }
             const data = await response.json();
-            // console.log(data);
+
             const arr = [];
+            // for (const key in data) {
+            //     arr.push({...data[key], id: key});
+            // }
             for (const key in data) {
-                arr.push(...data[key])
+                console.log(key);
+                arr.push({
+                    id: key,
+                    title: data[key].title,
+                    text: data[key].text,
+                    date: data[key].date
+                });
             }
-            // console.log(arr.title);
+            console.log(data.id);
+
             setMovies(arr);
             setIsLoading(false);
+            console.log(response);
+            console.log(data);
         } catch (error) {
             setError(error.message)
         }
@@ -51,45 +66,44 @@ const NewStoreComp = (props) => {
         showProductsArr();
     }, [showProductsArr]);
 
-    async function addMovieHandler(addFormObj) {
-        const response = await fetch('https://react-http-42444-default-rtdb.firebaseio.com/movies.json', {
-            method: 'POST',
-            body: JSON.stringify(addFormObj),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        const data = await response.json();
-    }
-    useEffect(() => {
-        addMovieHandler(addFormObj);
-    }, [addMovieHandler]);
-    // addMovieHandler(addFormObj);
-
-    function deleteItem(index){
-        let x = movies.filter((_, id) => {return id !== index})
+    async function deleteItem(id) {
+        let x = movies.filter((item) => { return item.id !== id })
         setMovies(x);
-        // console.log(id);
+        const response = await fetch(`https://react-http-42444-default-rtdb.firebaseio.com/movies/${id}.json`, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": "application/json",
+            },
+
+        })
+        console.log(id);
     }
+
 
     return (
         <>
             <Compnavbar />
             <CompHeader />
-            <StoreForm addFormData={addFormData}/>
-            <button onClick={showProductsArr}>fetch movies</button>
+            <StoreForm
+                showProductsArr={showProductsArr}
+            // addFormData={addFormData}
+            />
+            <div className={classes.fetchMovieParentBtn}>
+                <button variant="primary" className={classes.fetchMovieBtn} onClick={showProductsArr}>fetch movies</button>
+            </div>
             <div className="d-flex flex-wrap justify-content-center" style={{ gap: "15%" }}>
                 {!isLoading && movies.map((product, index) => (
+                    // {$console.log(product.id)}
                     <Card className="w-40 my-5" key={index}>
                         <Card.Body className="border-none">
-                        <Card.Title className="text-center">{index+1}</Card.Title>
+                            <Card.Title className="text-center">{index + 1}</Card.Title>
                             <Card.Title className="text-center">{product.title}</Card.Title>
                             <Card.Title className="text-center">{product.text}</Card.Title>
                             <Card.Title className="text-center">{product.date}</Card.Title>
                             <div className="container-fluid d-flex align-items-center justify-content-between">
                                 <Button variant="primary"
-                                onClick={() => deleteItem(index)}
-                                    // onClick={() => addAtSideCard(product)}
+                                    onClick={() => deleteItem(movies[index].id)}
+                                // onClick={() => addAtSideCard(product)}
                                 >Delete</Button>
                             </div>
                         </Card.Body>
@@ -98,7 +112,7 @@ const NewStoreComp = (props) => {
 
                 {!isLoading && movies.length === 0 && !error && <p>found no movies</p>}
                 {isLoading && <p>Loading...</p>}
-                {!isLoading && error && <p>{error}</p>}
+                {/* {!isLoading && error && <p>{error}</p>} */}
             </div>
         </>
     )
