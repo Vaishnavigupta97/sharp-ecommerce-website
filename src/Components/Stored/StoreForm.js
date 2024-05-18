@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classes from "./StoredForm.module.css";
 
-const StoreForm = () => {
+const StoreForm = (props) => {
     const [title, setTitle] = useState("");
     const [openText, setOpenText] = useState("");
     const [releaseDate, setReleaseDate] = useState("");
@@ -21,7 +21,11 @@ const StoreForm = () => {
             text: openText,
             date: releaseDate
         }
-        console.log(newMovieObj);
+        setTitle("");
+        setOpenText("");
+        setReleaseDate("");
+        props.addFormData(newMovieObj);
+        // console.log(newMovieObj);
     }
     return (
         <>

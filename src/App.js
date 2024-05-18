@@ -1,4 +1,3 @@
-// import { createBrowserRouter, RouterProvider} from 'react-router-dom';
 
 
 import { useContext, useState } from "react";
@@ -8,35 +7,34 @@ import Compnavbar from "./Components/Compnavbar";
 import ShowSideCart from "./Components/ShowSideCart";
 import Context from "./Store/Context";
 import "./App.css"; 
-import About from './Components/About/About';
+// import About from './Components/About/About';
 import StoreForm from "./Components/Stored/StoreForm";
 
-
-// const router = createBrowserRouter([
-//   // {path: '/', element: <},
-//   {path: '/about', element: <About /> }
-// ]);
 
 
 function App() {
   const {sideCartVisible} = useContext(Context);
   const [productList, setProductList] = useState([]);
+  // const [addFormObj, setAddFormObj] = useState([]);
 
   const storeProducts = (addData) => {
     setProductList((prev) => {
       return [...prev, addData];
     })
-    console.log(productList);
   }
+  // const addFormData = (data) => {
+  //   setAddFormObj((prevdata) => {
+  //     return [...prevdata, data];
+  //   })
+  // }
   return (
     <>
-    {/* <RouterProvider router={router}/> */}
       <Compnavbar className="navBar"/>
       <div className="d-flex">
         <div className="components">
           <CompHeader />
-          <StoreForm />
-          <CompProducts storeProduct= {storeProducts}/>
+          {/* <StoreForm addFormData={addFormData}/> */}
+          <CompProducts storeProduct= {storeProducts} />
         </div>
         {sideCartVisible && <ShowSideCart list= {productList}/>}
       </div>

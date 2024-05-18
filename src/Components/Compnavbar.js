@@ -17,6 +17,9 @@ const Compnavbar = () => {
     const goHome = () => {
         navigate("/home")
     }
+    const storeComp = () => {
+        navigate("/newStoreComp")
+    }
 
     return (
         <>
@@ -27,6 +30,7 @@ const Compnavbar = () => {
                             <Col className="gx-5" onClick={goHome}>HOME</Col>
                             <Col className="gx-5" onClick={goStore}>STORE</Col>
                             <Col className="gx-5" onClick={goAbout}>ABOUT</Col>
+                            <Col className="gx-5" onClick={storeComp}>NewStoreComp</Col>
                         </Row>
                         <ButtonGroup aria-label="Basic example">
                             <Button variant="outline-info" onClick={sideCartVisibleClick}>cart</Button>

@@ -12,11 +12,13 @@ import "../node_modules/react-bootstrap/dist/react-bootstrap";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import About from './Components/About/About';
 import Home from './Components/Home/Home';
+import NewStoreComp from './Components/Stored/NewStoreComp';
 
 const router = createBrowserRouter([
   {path: '/', element: <App />},
   {path: '/about', element: <About /> },
-  {path: '/home', element: <Home />}
+  {path: '/home', element: <Home />},
+  {path: '/newStoreComp', element: <NewStoreComp />}
 ]);
 
 
