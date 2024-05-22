@@ -16,6 +16,9 @@ const Compnavbar = () => {
                         <NavLink to='/about'>About</NavLink>
                         <NavLink to='/contact'>Contact us</NavLink>
                         <NavLink to='/newstorecomp'>NewStoreComp</NavLink>
+                        <NavLink to='/productpage'>product page</NavLink>
+                        {/* <NavLink to='/productdetail'>product page</NavLink> */}
+
                     </li>
                     {/* <div className={classes.navButtonParent}>
                         <button onClick={sideCartVisibleClick}>cart</button>
