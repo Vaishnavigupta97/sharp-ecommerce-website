@@ -1,0 +1,16 @@
+.productPageParent ul{
+    display: flex;
+    align-items: center;
+    /* align-items: baseline; */
+    /* justify-content: center; */
+    /* max-height: 10vh; */
+}
+.productImgParent{
+    width: 20%;
+    height: 50vh;
+}
+.productImgParent img{
+  width: 100%;
+  max-height: 100%;
+}
+
