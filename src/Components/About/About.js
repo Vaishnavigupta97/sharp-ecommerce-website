@@ -1,5 +1,5 @@
-import CompHeader from "../CompHeader";
-import Compnavbar from "../Compnavbar";
+import CompHeader from "../CommonComp/CompHeader";
+import Compnavbar from "../CommonComp/Compnavbar";
 import images from "../assets/Band Members about.png";
 import classes from "./About.module.css";
 

@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
-import Context from "../Store/Context";
+import Context from "../../Store/Context";
 import { useCallback } from "react";
+import classes from "./CompProducts.module.css";
 
 const productsArr = [
     {
@@ -30,50 +31,6 @@ const productsArr = [
 
 const CompProducts = (props) => {
     const {sideCartVisibleClick, setAllPurchaseCart, allPurchaseCart} = useContext(Context);
-    // const [movies, setMovies] = useState([]);
-    // const [isLoading, setIsLoading] = useState(false);
-    // const [error, setError] =  useState(null);
-
-    // const showProductsArr = useCallback(async () =>{
-    //     setIsLoading(true);
-    //     setError(null);
-    //     try{
-    //         const response = await  fetch('https://react-http-42444-default-rtdb.firebaseio.com/movies.json');
-    //         if(!response.ok){
-    //             throw new Error('Something went wrong ....Retrying');
-    //         }
-    //         const data = await response.json();
-    //         console.log(data);
-    //         const arr = [];
-    //         for(const key in data){
-    //             arr.push(...data[key])
-    //         }
-    //         console.log(arr.title);
-    //             setMovies(arr);
-    //             setIsLoading(false);
-    //     }catch(error){
-    //         setError(error.message)
-    //     }
-    //     setIsLoading(false);
-    // }, [])
-
-    // useEffect(() => {
-    //     showProductsArr();
-    // }, [showProductsArr]);
-
-    // async function addMovieHandler(){
-    //     const response = await fetch('https://react-http-42444-default-rtdb.firebaseio.com/movies.json', {
-    //         method: 'POST',
-    //         body: JSON.stringify(props.addFormData),
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     });
-    //     const data = await response.json();
-    // }
-    // addMovieHandler();
-
-
     const addAtSideCard = (product) => {
         const productObj = {
             title : product.title,
@@ -86,7 +43,7 @@ const CompProducts = (props) => {
 
     return (
         <>
-            <div className="d-flex flex-wrap justify-content-center" style={{ gap: "15%" }}>
+            <div className={classes.cardParent}>
                 {/* <button onClick={showProductsArr}>fetch movies</button> */}
                 {productsArr.map((product, index) => (
                         <Card className="w-40 my-5" key={index}>
@@ -103,14 +60,9 @@ const CompProducts = (props) => {
                             </Card.Body>
                         </Card>
                 ))}
-                
-                {/* {!isLoading && movies.length === 0 && !error &&<p>found no movies</p>}
-                {isLoading && <p>Loading...</p>}
-                {!isLoading && error && <p>{error}</p>} */}
             </div>
-            <div className="m-auto" style={{width: "10%"}}>
-                <Button className="w-100 btn btn-secondary border-none fw-bolder fs-6" onClick={sideCartVisibleClick}>
-                    See the Cart</Button>
+            <div className={classes.productBtnParent}>
+                <button className={classes.productBtn} onClick={sideCartVisibleClick}>See the Cart</button>
             </div>
         </>
     )

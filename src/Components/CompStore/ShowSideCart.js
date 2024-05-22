@@ -1,14 +1,10 @@
 import { useContext } from "react";
 import classes from "./ShowSideCart.module.css";
-import Context from "../Store/Context";
+import Context from "../../Store/Context";
 
 const ShowSideCart = (props) => {
     const { removeSetSideCard } = useContext(Context);
     let sum = 0;
-    // let defineMap = new Map();
-    // const removeCartItem = (event) => {
-    //     event.delete();
-    // }
     return (
         <>
             <div className={classes.sideparent}>
@@ -40,9 +36,9 @@ const ShowSideCart = (props) => {
                                             <div className={classes.tdCover}>
                                                 <p>1</p>
                                                 <div>
-                                                <button 
-                                                // onClick={() =>removeCartItem(event)}
-                                                >Remove</button>
+                                                    <button
+                                                    // onClick={() =>removeCartItem(event)}
+                                                    >Remove</button>
                                                 </div>
                                             </div>
                                         </td>
@@ -62,11 +58,6 @@ const ShowSideCart = (props) => {
                         <p>{sum}</p>
 
                     </div>
-
-                </div>
-
-                <div>
-
                 </div>
                 <div className={classes.purchase}>
                     <button>Purchase</button>

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import CompHeader from "../CompHeader";
-import Compnavbar from "../Compnavbar";
+import CompHeader from "../CommonComp/CompHeader";
+import Compnavbar from "../CommonComp/Compnavbar";
 import classes from "./Home.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 

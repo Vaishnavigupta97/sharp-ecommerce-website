@@ -1,33 +1,16 @@
-import { createBrowserRouter, RouterProvider} from 'react-router-dom';
-
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
+import { BrowserRouter } from 'react-router-dom';
 import ContextProvider from './Store/ContextProvider';
-
-// --------------------------React Bootstrap Configuration--------------------------------- 
-import "../node_modules/react-bootstrap/dist/react-bootstrap";
-import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import About from './Components/About/About';
-import Home from './Components/Home/Home';
-import NewStoreComp from './Components/Stored/NewStoreComp';
-
-const router = createBrowserRouter([
-  {path: '/', element: <App />},
-  {path: '/about', element: <About /> },
-  {path: '/home', element: <Home />},
-  {path: '/newStoreComp', element: <NewStoreComp />}
-]);
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ContextProvider>
-    <RouterProvider router={router}/>
-   {/* <App /> */}
+    <BrowserRouter> 
+      <App />
+    </BrowserRouter> 
     </ContextProvider>
   </React.StrictMode>
 );

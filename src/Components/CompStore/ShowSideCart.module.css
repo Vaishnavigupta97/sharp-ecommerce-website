@@ -1,9 +1,10 @@
 .sideparent{
     width: 35%;
-    /* height: 80vh; */
+    height: 80vh;
     min-height: 100vh;
     position: fixed;
     right: 0;
+    top: 25%;
     overflow-y: scroll;
     margin: 1% 0;
     background-color: white;

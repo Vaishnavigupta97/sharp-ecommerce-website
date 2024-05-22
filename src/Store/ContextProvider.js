@@ -9,6 +9,7 @@ const ContextProvider = ({children}) => {
     // -------------------------functions------------------------------------ 
     const sideCartVisibleClick = () => {
         setSideCartVisible(true);
+        console.log("njnksdnv");
     }
     const removeSetSideCard = () => {
         setSideCartVisible(false);

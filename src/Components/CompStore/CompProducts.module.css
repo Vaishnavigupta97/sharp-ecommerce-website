@@ -1,0 +1,23 @@
+.cardParent{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 5%;
+    /* position: fixed; */
+    /* overflow: scroll; */
+  
+}
+.productBtnParent{
+    width: 100%;
+    text-align: center;
+    margin: 3% 0;
+}
+.productBtn{
+    background-color: purple;
+    width: 20%;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 1%;
+    color: white;
+}

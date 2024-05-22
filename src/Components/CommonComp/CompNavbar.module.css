@@ -1,0 +1,22 @@
+/* .navParent{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+} */
+nav{
+    /* display: flex;
+    align-items: center; */
+}
+li{
+    display: flex;
+    /* width: 95%; */
+    justify-content: center;
+    gap: 5%;
+}
+li a{
+    font-size: 30px;
+    text-decoration: none;
+}
+/* .navButtonParent{
+    width: 5%;
+} */

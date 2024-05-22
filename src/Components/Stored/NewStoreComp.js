@@ -3,8 +3,8 @@ import { Card, Button } from "react-bootstrap";
 // import Context from "../Store/Context";
 // import Context from "../../Store/Context";
 import { useCallback } from "react";
-import Compnavbar from "../Compnavbar";
-import CompHeader from "../CompHeader";
+import Compnavbar from "../CommonComp/Compnavbar";
+import CompHeader from "../CommonComp/CompHeader";
 import StoreForm from "./StoreForm";
 import classes from "./NewStoreComp.module.css";
 
@@ -88,6 +88,7 @@ const NewStoreComp = (props) => {
                 showProductsArr={showProductsArr}
             // addFormData={addFormData}
             />
+            <p>abcdeflknfjkwnfklwnfkwefnkw</p>
             <div className={classes.fetchMovieParentBtn}>
                 <button variant="primary" className={classes.fetchMovieBtn} onClick={showProductsArr}>fetch movies</button>
             </div>

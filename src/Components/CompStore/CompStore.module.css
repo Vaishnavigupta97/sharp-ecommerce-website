@@ -1,0 +1,14 @@
+.compStoreParent{
+    display: flex;
+    justify-content: center;
+}
+.compNavBar{
+    width: 95%;
+}
+.storeNavParent{
+    display: flex;
+    align-items: center;
+}
+.navButtonParent{
+    width: 5%;
+}
