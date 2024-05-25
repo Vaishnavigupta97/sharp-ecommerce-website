@@ -13,6 +13,7 @@ function App() {
   return (
     <>
       <Switch>
+      <Route path="/" exact><CompStore /></Route>
         <Route path="/home"><Home /></Route>
         <Route path="/compStore"><CompStore /></Route>
         <Route path="/about"><About /></Route>
