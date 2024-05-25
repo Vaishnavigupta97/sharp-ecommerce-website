@@ -8,6 +8,8 @@ const Contactus = () =>{
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isLogin, setIsLogin] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
+
 
     const switchAuthModeHandler = () => {
         setIsLogin((prevState) => !prevState);
@@ -35,11 +37,13 @@ const Contactus = () =>{
         setPassword("");
         console.log(contactFormObj);
 
-
+        setIsLoading(true);
+        let url;
         if(isLogin){
-
+            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAMFbrxc5lSXe_gUqdPMA0uH9hrJY5XSNE'
         }else{
-            fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAMFbrxc5lSXe_gUqdPMA0uH9hrJY5XSNE',
+            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAMFbrxc5lSXe_gUqdPMA0uH9hrJY5XSNE'
+            fetch(url,
             {
                 method: 'POST',
                 body: JSON.stringify({
@@ -51,18 +55,24 @@ const Contactus = () =>{
                     'Content-Type' : 'application/json'
                 }
             }).then(res => {
+                setIsLoading(false);
                 if(res.ok){
-
+                    return res.json();
                 }else{
                     return res.json().then((data) =>{
                         let errorMessage = 'Authantication failed';
-                        if(data && data.error && data.error.message){
-                             errorMessage = data.error.message;
-                        }
-                        alert(errorMessage);
+                        // if(data && data.error && data.error.message){
+                        //      errorMessage = data.error.message;
+                        // }
+                        // alert(errorMessage);
+                        throw new Error(errorMessage)
                         // console.log(data);
                     })
                 }
+            }).then(data => {
+                console.log(data)
+            }).catch(err => {
+                alert(err.message);
             })
         }
 
@@ -96,8 +106,9 @@ const Contactus = () =>{
                 <input type="password" value={password} onChange={passwrodhandler} />
             </div>
             <div>
-                <button>{isLogin ? 'Login' : 'create Account'}</button>
-                <button type="submit" onClick={switchAuthModeHandler}>submit</button>
+                {!isLoading && <button>{isLogin ? 'Login' : 'create Account'}</button>}
+                {isLoading && <p>Sending request....</p>}
+                <button type="submit" onClick={switchAuthModeHandler}>{isLogin ? 'Create new account' : 'Login with existing account'}</button>
             </div>
         </form>
         </>
