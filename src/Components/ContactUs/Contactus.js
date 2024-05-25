@@ -1,7 +1,10 @@
 import CompHeader from "../CommonComp/CompHeader";
 import Compnavbar from "../CommonComp/Compnavbar";
 import classes from "./Contact.module.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
+// import AuthContext from "../../Store/auth-context"
+import AuthContext from "../../Store/auth-context"
+
 
 const Contactus = () =>{
     const [name, setName] = useState("");
@@ -9,6 +12,8 @@ const Contactus = () =>{
     const [password, setPassword] = useState("");
     const [isLogin, setIsLogin] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
+
+   const authCtx =  useContext(AuthContext)
 
 
     const switchAuthModeHandler = () => {
@@ -70,6 +75,7 @@ const Contactus = () =>{
                     })
                 }
             }).then(data => {
+                authCtx.login(data.idToken);
                 console.log(data)
             }).catch(err => {
                 alert(err.message);
