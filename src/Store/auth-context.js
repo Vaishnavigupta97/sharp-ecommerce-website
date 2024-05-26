@@ -18,7 +18,7 @@ export const AuthContextProvider = (propps) => {
         setToken(null);
     }
     const contextValue = {
-        token : token,
+        token : '',
         isLoggedIn : userIsLoggedIn,
         login : loginHandler,
         logout : logOutHandler
