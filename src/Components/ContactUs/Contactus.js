@@ -4,9 +4,11 @@ import classes from "./Contact.module.css";
 import { useContext, useState } from "react";
 // import AuthContext from "../../Store/auth-context"
 import AuthContext from "../../Store/auth-context"
+import {useHistory} from 'react-router-dom';
 
 
 const Contactus = () =>{
+    const history = useHistory();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -57,7 +59,8 @@ const Contactus = () =>{
                     returnSecureToken : true
                 }),
                 headers: {
-                    'Content-Type' : 'application/json'
+                    'Content-Type' : 'application/json',
+                    'Authorization' : 'Bearer abc'
                 }
             }).then(res => {
                 setIsLoading(false);
@@ -76,6 +79,7 @@ const Contactus = () =>{
                 }
             }).then(data => {
                 authCtx.login(data.idToken);
+                history.replace('/');
                 console.log(data)
             }).catch(err => {
                 alert(err.message);
